@@ -16,7 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://ai-proejct-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://ai-proejct-production.up.railway.app', 'https://ai.mostafade.com']
 
 
 # Application definition

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Project | Mostafa-DE</title>
+  </head>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      color: #f5f5f5;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <body>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      "
+    >
+      <h1 style="color: #f5f5f5">Welcome to my quick AI project!</h1>
+      <p style="text-align: center; color: #f5f5f5">
+        This is a simple proejct that domonstrates the use of K-Means
+        clustering<br />
+        To get started, upload an image and click the "Cluster" button to see
+        the results!<br />
+        The image will be dynamically clustered and the results will be
+        displayed below
+      </p>
+      <h1 style="margin-bottom: 2rem">Upload an Image</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" />
+        <button type="submit">Process</button>
+      </form>
+    </div>
+  </body>
+</html>

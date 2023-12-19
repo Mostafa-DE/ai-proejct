@@ -5,12 +5,11 @@ import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 from yellowbrick.cluster import KElbowVisualizer
-import uuid
 
 
 
 def find_optimal_k(pixels):
-    model = KMeans(random_state=0, n_init='auto')
+    model = KMeans(random_state=0, n_init=5)
     visualizer = KElbowVisualizer(model, k=(1, 5), timings=False)
     
     visualizer.fit(pixels)
@@ -27,13 +26,14 @@ def find_optimal_k(pixels):
 def prccess_image(image_path):
     full_image_path = os.path.join(settings.MEDIA_ROOT, image_path)
     image = Image.open(f"./{full_image_path}") 
+    image.thumbnail((300, 300))
     image_np = np.array(image)
     pixels = image_np.reshape(-1, 3)
 
     optimal_k = find_optimal_k(pixels) or 3
 
     # Apply K-means clustering with the optimal K
-    kmeans = KMeans(n_clusters=optimal_k, n_init=5)
+    kmeans = KMeans(n_clusters=optimal_k, n_init=10)
 
     kmeans.fit(pixels)
 

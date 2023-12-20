@@ -26,7 +26,7 @@ def find_optimal_k(pixels):
 def prccess_image(image_path):
     full_image_path = os.path.join(settings.MEDIA_ROOT, image_path)
     image = Image.open(f"./{full_image_path}") 
-    image.thumbnail((300, 300))
+    image.thumbnail((400, 400))
     image_np = np.array(image)
     pixels = image_np.reshape(-1, 3)
 
@@ -62,7 +62,7 @@ def prccess_image(image_path):
     plot_url = os.path.join(settings.MEDIA_URL, 'plot.png')
     
 
-    return dominant_colors_url, plot_url
+    return dominant_colors_url, plot_url, optimal_k
     
     
     
